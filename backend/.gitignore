@@ -1,0 +1,161 @@
+# Общие игнорируемые файлы и директории
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# Игнорирование конфиденциальных файлов
+.env
+*.env.*
+
+# Игнорирование для MacOS
+*.DS_Store
+
+# Игнорирование для Windows
+Thumbs.db
+Desktop.ini
+
+# Игнорирование для Node.js / React Native
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+dist/
+build/
+.expo/
+.expo-shared/
+
+# Игнорирование для Android
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.war
+*.ear
+*.so
+*.dll
+*.pdb
+*.bin
+*.o
+*.a
+*.lib
+*.nib
+*.plst
+*.pyc
+*.pyo
+*.exe
+*.log
+*.swp
+*.swo
+*.out
+*.hprof
+*.orig
+*.pyc
+*.pyo
+*.rej
+*.sublime-*
+
+# Android
+/app/build/
+
+# iOS
+ios/Pods/
+ios/build/
+ios/DerivedData/
+ios/*.xcodeproj/
+ios/*.xcworkspace/
+ios/*.xcuserdata/
+ios/*.xcuserstate
+ios/*.xcconfig
+ios/*.xcscheme
+
+# Ignoring IntelliJ IDEA / Android Studio project files
+*.iws
+.idea/workspace.xml
+.idea/libraries
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/.name
+.idea/modules.xml
+.idea/artifacts
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/datasources/
+.idea/vmoptions.xml
+.idea/copyright/
+.idea/scopes/
+.idea/inspectionProfiles/
+.idea/codeStyles/
+.idea/deployment.xml
+
+# Ignoring Logs and Temporary Files
+*.log
+logs/
+*.log.*
+
+# Spring Boot
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse / STS / IDEA
+.project
+.classpath
+.c9/
+.settings/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+.gradle/
+build/
+
+# Ignoring database files
+*.db
+*.db-journal
+*.sql
+*.sqlite
+
+# Ignoring OS-specific files
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Ignoring IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignoring backend output files
+backend/build/
+backend/out/
+
+# Ignoring frontend output files
+frontend/MyAtlasApp/build/
+frontend/MyAtlasApp/dist/
+frontend/MyAtlasApp/.expo/
+
+# Ignoring test output
+/test-results/
