@@ -5,6 +5,7 @@ public class UserDTO {
     private Long id;
     private String name;
     private String email;
+    private String password;
     private String vkId;
     private String telegramId;
 
@@ -12,10 +13,11 @@ public class UserDTO {
     public UserDTO() {}
 
     // Полный конструктор
-    public UserDTO(Long id, String name, String email, String vkId, String telegramId) {
+    public UserDTO(Long id, String name, String email, String password, String vkId, String telegramId) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.password = password;
         this.vkId = vkId;
         this.telegramId = telegramId;
     }
@@ -45,6 +47,14 @@ public class UserDTO {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getVkId() {
         return vkId;
     }
@@ -61,3 +71,4 @@ public class UserDTO {
         this.telegramId = telegramId;
     }
 }
+

@@ -1,6 +1,6 @@
 package com.myatlas.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
@@ -26,7 +26,6 @@ public class User {
     private String telegramId;
 
     // Getters and Setters
-
     public Long getId() {
         return id;
     }

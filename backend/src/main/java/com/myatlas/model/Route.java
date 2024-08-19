@@ -1,7 +1,8 @@
 package com.myatlas.model;
 
-import javax.persistence.*;
 import java.util.List;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "routes")

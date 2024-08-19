@@ -1,6 +1,6 @@
 package com.myatlas.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "reviews")
@@ -11,7 +11,7 @@ public class Review {
     private Long id;
 
     @Column(nullable = false)
-    private String content;
+    private String text;
 
     @Column(nullable = false)
     private int rating;
@@ -34,12 +34,12 @@ public class Review {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getText() {
+        return text;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getRating() {
@@ -66,3 +66,5 @@ public class Review {
         this.user = user;
     }
 }
+
+

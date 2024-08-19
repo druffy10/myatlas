@@ -1,9 +1,15 @@
 package com.myatlas.service;
 
+import com.myatlas.dto.AIChatRequestDTO;
+import com.myatlas.dto.AIChatResponseDTO;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -11,10 +17,7 @@ public class AIChatService {
 
     private final RestTemplate restTemplate;
 
-    // URL API для взаимодействия с AI (например, GPT-4 API)
     private static final String AI_API_URL = "https://api.openai.com/v1/completions";
-
-    // API ключ для доступа к AI сервису
     private static final String API_KEY = "YOUR_API_KEY_HERE";
 
     public AIChatService() {
@@ -22,28 +25,32 @@ public class AIChatService {
     }
 
     public String getAIResponse(String userInput) {
-        // Создаем параметры запроса
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("model", "gpt-4");
         requestBody.put("prompt", userInput);
         requestBody.put("max_tokens", 150);
         requestBody.put("temperature", 0.7);
 
-        // Устанавливаем заголовки
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "Bearer " + API_KEY);
-        headers.put("Content-Type", "application/json");
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + API_KEY);
+        headers.set("Content-Type", "application/json");
 
-        // Отправляем запрос и получаем ответ
-        Map<String, Object> response = restTemplate.postForObject(
-                AI_API_URL,
-                new HttpEntity<>(requestBody, new HttpHeaders(headers)),
-                Map.class
-        );
+        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(requestBody, headers);
+        Map<String, Object> response = restTemplate.postForObject(AI_API_URL, entity, Map.class);
 
-        // Извлекаем текст из ответа
         String aiResponse = (String) ((Map<String, Object>) ((List<Object>) response.get("choices")).get(0)).get("text");
 
         return aiResponse.trim();
     }
+
+    public AIChatResponseDTO processUserMessage(AIChatRequestDTO aiChatRequestDTO) {
+        String aiResponse = getAIResponse(aiChatRequestDTO.getMessage());
+        return new AIChatResponseDTO(aiResponse, true);
+    }
+
+    public AIChatResponseDTO generateRoute(AIChatRequestDTO aiChatRequestDTO) {
+        String aiResponse = "Generated route based on input: " + aiChatRequestDTO.getMessage();
+        return new AIChatResponseDTO(aiResponse, true);
+    }
+
 }
